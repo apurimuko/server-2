@@ -59,7 +59,7 @@
       <tr v-for="item in list">
         <td>{{item.date}}</td>
         <td>{{item.title}}</td>
-        <td>{{item.service}}</td>
+        <td>{{item.subtitle}}</td>
       </tr>
     </table>
   </body>
@@ -70,7 +70,7 @@
         list: false,
         area: "130",
         service: "g1",
-        data: "2025-10-03",
+        date: "2025-10-03",
         // 変数（プロパティ）
         async getProgramList() {
           const API_KEY = localStorage.getItem("API_KEY");
@@ -83,7 +83,7 @@
           const res = await fetch(url);
           const obj = await res.json();
           this.list = obj.list[this.service];
-          console.log(JSON.stringify(this.list, null, 2));
+          console.log(JSON.stringify(this.list, null, 5));
         },
 
         // 関数（メソッド）
