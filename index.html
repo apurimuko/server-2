@@ -70,7 +70,7 @@
         // 変数（プロパティ）
         async fetchData(){
           const api = localStorage.getItem("api");
-          const url = `https://api.nhk.or.jp/v2/pg/list/130/g1/2025-10-03.json?key=${api}`;,
+          const url = `https://api.nhk.or.jp/v2/pg/list/130/g1/2025-10-03.json?key=${api}`;
           try {
           const res = await fetch(url);
           const obj = await res.json();
