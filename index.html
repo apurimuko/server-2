@@ -60,6 +60,7 @@
         <td></td>
         <td></td>
         <td></td>
+        {{list[0].title}}
       </tr>
     </table>
   </body>
@@ -82,7 +83,8 @@
 
           const res = await fetch(url);
           const obj = await res.json();
-          console.log(JSON.stringify(obj, null, 2));
+          this.list = obj.list[this.service];
+          console.log(JSON.stringify(this.list, null, 2));
         },
 
         // 関数（メソッド）
