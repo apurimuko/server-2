@@ -68,8 +68,17 @@
     function dataset() {
       return {
         // 変数（プロパティ）
-        list: false,
-        apikey: '' // 自分で取得する
+        const apiKey = localStorage.getItem("api");
+        async fetchData(){
+          const url = `https://api.nhk.or.jp/v2/pg/list/130/g1/2025-10-03.json?key=${api}`;,
+          try {
+          const res = await fetch(url);
+          const obj = await res.json();
+          this.list = obj.list; // 取得データを格納
+          console.log(this.list);
+        }
+        }
+
 
         // 関数（メソッド）
       };
