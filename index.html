@@ -35,7 +35,7 @@
     <!-- データが取得できたときにdl要素を表示する -->
     <label
       >地域：
-      <select>
+      <select v-model="area">
         <option value="130">東京</option>
         <option value="270">大阪</option>
       </select>
@@ -43,7 +43,7 @@
 
     <label
       >チャンネル：
-      <select>
+      <select v-model="service">
         <option value="g1">NHK 総合1</option>
         <option value="s1">NHK BS1</option>
         <option value="r3">NHK FM</option>
@@ -67,6 +67,10 @@
   <script>
     function dataset() {
       return {
+        list: false,
+        area: "130",
+        service: "g1",
+        data: "2025-10-03",
         // 変数（プロパティ）
         async getProgramList() {
           const API_KEY = localStorage.getItem("API_KEY");
@@ -78,6 +82,7 @@
 
           const res = await fetch(url);
           const obj = await res.json();
+          console.log(JSON.stringify(obj, null, 2));
         },
 
         // 関数（メソッド）
