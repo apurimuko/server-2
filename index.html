@@ -68,17 +68,19 @@
     function dataset() {
       return {
         // 変数（プロパティ）
-        async getProgramList(){
-          const api = localStorage.getItem("api");
-          const url = `https://api.nhk.or.jp/v2/pg/list/130/g1/2025-10-03.json?key=${this.api}`;
-          try {
+        async getProgramList() {
+          const API_KEY = localStorage.getItem("API_KEY");
+          const query = new URLSearchParams({
+            API_KEY: API_KEY,
+          });
+          const url =
+            `https://api.nhk.or.jp/v2/pg/list/130/g1/2025-10-03.json?` + query;
+
           const res = await fetch(url);
           const obj = await res.json();
           this.list = obj.list; // 取得データを格納
           console.log(this.list);
-        }
-        }
-
+        },
 
         // 関数（メソッド）
       };
