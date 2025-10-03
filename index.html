@@ -78,7 +78,8 @@
             key: API_KEY,
           });
           const url =
-            `https://api.nhk.or.jp/v2/pg/list/130/g1/2025-10-03.json?` + query;
+            `https://api.nhk.or.jp/v2/pg/list/${this.area}/${this.service}/${this.date}.json?` +
+            query;
 
           const res = await fetch(url);
           const obj = await res.json();
