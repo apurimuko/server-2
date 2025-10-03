@@ -56,11 +56,10 @@
         <th>タイトル</th>
         <th>内容</th>
       </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        {{list[0].title}}
+      <tr v-for list in item>
+        <td>{{item.date}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.service}}</td>
       </tr>
     </table>
   </body>
