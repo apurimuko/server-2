@@ -68,8 +68,8 @@
     function dataset() {
       return {
         // 変数（プロパティ）
-        const apiKey = localStorage.getItem("api");
         async fetchData(){
+          const api = localStorage.getItem("api");
           const url = `https://api.nhk.or.jp/v2/pg/list/130/g1/2025-10-03.json?key=${api}`;,
           try {
           const res = await fetch(url);
