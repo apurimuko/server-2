@@ -71,15 +71,13 @@
         async getProgramList() {
           const API_KEY = localStorage.getItem("API_KEY");
           const query = new URLSearchParams({
-            API_KEY: API_KEY,
+            key: API_KEY,
           });
           const url =
             `https://api.nhk.or.jp/v2/pg/list/130/g1/2025-10-03.json?` + query;
 
           const res = await fetch(url);
           const obj = await res.json();
-          this.list = obj.list; // 取得データを格納
-          console.log(this.list);
         },
 
         // 関数（メソッド）
